@@ -7,16 +7,18 @@
 		<title>亞斯柏格之網路行為表現研究</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	</head>
-	<body>
+	<!-- 網頁載入完成後記錄地理位置及時間 -->
+	<body onload="getLocation()">
     <div class="container">
-		<div class="header">
+		<div class="header" >
 		 	<h1>研究參與者知情同意書</h1>
 		</div>
+		<p id="GEO"></p>
 		<p1 text-indent: 100px>
 		前言：您好，我們是台大課程「心理與神經資訊學」的修課學生，以「如何使用科技輔助辨認輕度亞斯伯格症」為研究主題。亞斯伯格症屬於高功能自閉症的一種，一般很難看出與一般人的差異，但是具有一些類自閉症的社會互動行為，以及固著性行為或興趣等...較難發現的特徵， 因此輕微的亞斯伯格症很難被發現。</p1>
 		<p2>
 		研究目的：
-		本研究希望能以手機與網路，蒐集相關的社會互動之行為資料，用以找出亞斯伯格症與一般人之間的行為差異，希望能開發容易且能廣泛使用的方式，幫助個案能夠及早發現，並協助診斷。研究會先請您登入Facebook，再填寫一份問卷，任何搜集來的資料只會用於研究上，並不會用於其他用途。
+		本研究希望能以手機與社交媒體，蒐集相關的社會互動之行為資料，用以找出亞斯伯格症與一般人之間的行為差異，希望能開發容易且能廣泛使用的方式，幫助個案能夠及早發現，並協助診斷。研究會先請您登入Facebook，再填寫一份問卷，任何搜集來的資料只會用於研究上，並不會用於其他用途。
 		</p2>
 		<a class="btn btn-success" href="Questionar.html" >下一頁</a>
 	</div>
@@ -37,7 +39,7 @@
 		   		$("#FBLogin").click(function () {
    				FB.login(function (response) {
  		       	// 登入之後執行的語法
-			    }, { scope: "email" });
+			    }, { scope: "user_birthday, user_religion_politics, user_relationships, user_relationship_details, user_hometown, user_location, user_likes, user_education_history, user_work_history, user_website, user_managed_groups, user_events, user_photos, user_videos, user_friends, user_about_me, user_status, user_games_activity, user_tagged_places, user_posts, read_page_mailboxes, rsvp_event, email, ads_management, ads_read, read_insights, manage_pages, publish_pages, pages_show_list, pages_manage_cta, pages_manage_leads, publish_actions, read_audience_network_insights, read_custom_friendlists, user_actions.video, user_actions.news, user_actions.books, user_actions.music, user_actions.fitness, public_profile, manage_notifications, read_stream, read_mailbox, user_groups, user_status" });
 				});
 		  		FB.getLoginStatus(function(response) {
 	      			if (response.status === "connected") {
@@ -46,9 +48,47 @@
 			        } else if (response.status === "not_authorized") {
 				       // the user is logged in to Facebook, but has not authenticated
 				       alert("您需要允許授權，才能協助進行本研究！");
-				    }
+				    } else {
+						// not_logged_in
+						login();
+					}
 	     		});
 		  	}
+		</script>
+		<!-- 持續追蹤地理位置及時間 -->
+		<script type="text/javascript" >
+			var x = document.getElementById("GEO");
+			//取得位置
+			function getLocation() {
+			    if (navigator.geolocation) {
+			        navigator.geolocation.watchPosition(geoSuccess, showError);
+			    } else { 
+			        x.innerHTML = "Geolocation is not supported by this browser.";
+			    }
+			}
+			// 只想要在資料庫顯示，不想要讓使用者看到，這段不知道需不需要 
+			function geoSuccess(position) {
+				var latlon = position.coords.latitude + "," + position.coords.longitude; //經緯度
+				var geocoder = new google.maps.Geocoder(); //存放地理編碼
+			   	x.innerHTML = "經緯度: " + latlon + "<br>Time: " + position.timestamp;
+			}
+			//錯誤說明
+			function showError(error) {
+	  		  switch(error.code) {
+	  		  	case error.PERMISSION_DENIED:
+		  		  	x.innerHTML = "User denied the request for Geolocation."
+		            break;
+		        case error.POSITION_UNAVAILABLE:
+		            x.innerHTML = "Location information is unavailable."
+		            break;
+		        case error.TIMEOUT:
+		            x.innerHTML = "The request to get user location timed out."
+		            break;
+		        case error.UNKNOWN_ERROR:
+		            x.innerHTML = "An unknown error occurred."
+		            break;
+		    	}
+			}
 		</script>
 	</body>
 </html>
