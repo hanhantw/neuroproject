@@ -16,9 +16,39 @@
 		前言：您好，我們是台大課程「心理與神經資訊學」的修課學生，以「如何使用科技輔助辨認輕度亞斯伯格症」為研究主題。亞斯伯格症屬於高功能自閉症的一種，一般很難看出與一般人的差異，但是具有一些類自閉症的社會互動行為，以及固著性行為或興趣等...較難發現的特徵， 因此輕微的亞斯伯格症很難被發現。</p1>
 		<p2>
 		研究目的：
-		本研究希望能以手機與網路，蒐集相關的社會互動之行為資料，用以找出亞斯伯格症與一般人之間的行為差異，希望能開發容易且能廣泛使用的方式，幫助個案能夠及早發現，並協助診斷。研究會先請您填寫兩份問卷，持續時間為一個月，需要在手機中下載軟體，補上軟體名稱資料 
+		本研究希望能以手機與網路，蒐集相關的社會互動之行為資料，用以找出亞斯伯格症與一般人之間的行為差異，希望能開發容易且能廣泛使用的方式，幫助個案能夠及早發現，並協助診斷。研究會先請您登入Facebook，再填寫一份問卷，任何搜集來的資料只會用於研究上，並不會用於其他用途。
 		</p2>
 		<a class="btn btn-success" href="Questionar.html" >下一頁</a>
 	</div>
+	<!--Facebook API-->
+	<sript src="http://connect.facebook.net/zh_TW/all.js"></script>
+		<div id="fb-root"></div>
+		<div id="userdata"></div>
+	<script  type="text/javascript" charset="utf-8" async defer>
+			window.fbAsyncInit= function(){
+				FB.init({
+	         	appId: '922817567806348', 
+	         	status: true,
+		        cookie: true,
+		        xfbml: true,
+		        oauth: true
+		   		});
+			}
+		   		$("#FBLogin").click(function () {
+   				FB.login(function (response) {
+ 		       	// 登入之後執行的語法
+			    }, { scope: "email" });
+				});
+		  		FB.getLoginStatus(function(response) {
+	      			if (response.status === "connected") {
+			        var uid = response.authResponse.userID;
+			        var accessToken = response.authResponse.accessToken;
+			        } else if (response.status === "not_authorized") {
+				       // the user is logged in to Facebook, but has not authenticated
+				       alert("您需要允許授權，才能協助進行本研究！");
+				    }
+	     		});
+		  	}
+		</script>
 	</body>
 </html>
