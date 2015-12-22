@@ -1,0 +1,5 @@
+　今天(N)　是(Vt)　第一(DET)　天(M)　上課(Vi)　，(COMMACATEGORY)
+　我(N)　覺得(Vt)　有點(ADV)　緊張(Vi)　，(COMMACATEGORY)
+　不(ADV)　知道(Vt)　老師(N)　會(ADV)　是(Vt)　什麼(DET)　樣(M)　的(T)　人(N)　，(COMMACATEGORY)
+　身邊(N)　的(T)　同學(N)　我(N)　也(ADV)　都(ADV)　不(ADV)　認識(Vt)　，(COMMACATEGORY)
+　這樣(Vi)　陌生(Vi)　的(T)　環境(N)　真是(ADV)　不(ADV)　習慣(Vt)　。(PERIODCATEGORY)

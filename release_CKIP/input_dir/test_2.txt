@@ -1,0 +1,4 @@
+　我(N)　今天(N)　遇到(Vt)　一(DET)　個(M)　很(ADV)　厲害(Vi)　的(T)　人(N)　，(COMMACATEGORY)
+　是(Vt)　個(M)　街頭(N)　藝人(N)　，(COMMACATEGORY)
+　他(N)　邊(ADV)　彈(Vt)　吉他(N)　邊(N)　唱歌(Vi)　，(COMMACATEGORY)
+　非常(ADV)　的(T)　好聽(Vi)　。(PERIODCATEGORY)
