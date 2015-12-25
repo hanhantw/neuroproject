@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="keyword" content="亞斯,AS,成人亞斯,社交研究,亞斯柏格" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>亞斯柏格之網路行為表現研究</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body >
+    <div class="container">
+      <div class="header">
+        <h1>成人自閉症暨亞斯柏格症光譜量表</h1>
+      </div>
+      <form action="action_page.php" method="post" target="_blank" >
+        <div class="form-responsive">
+          <table class="form">
+            <thead>
+              <tr>個人基本資料</tr>
+              <br><br>
+            </thead>
+            <tbody>
+              <!-- 輸入年齡 並驗證18歲以上99歲以下 -->
+              年齡（實歲）：<input type="text" name="age" onblur="VariName()" required><br><br>
+                <script  type="text/javascript" charset="utf-8" async defer>
+                 function VariName(){
+                  var x = document.getElementsByName("age").value;
+                  if (x<18){
+                    document.getElementsByName("age") = "本實驗僅針對成人";
+                  }else(x>99){
+                    document.getElementsByName("age") = "請輸入真實年齡";
+                  }
+                 }             
+                </script>
+              性別：<select name="gender" required>
+                <option value="male">男性</option>
+                <option value="female">女性</option>
+                </select><br><br>
+              學歷：<select name="education" required>
+                <option value="elem">國小</option>
+                <option value="junior">國中</option>
+                <option value="senior">高中</option>
+                <option value="undergrad">大學/專科</option>
+                <option value="grad">研究所</option>
+                </select> <br><br>
+              職業類別：<selet name="job" required>
+                <option value="admin">內勤行政</option>
+                <option value="sales">外勤業務</option>
+                <option value="mech">技術操作</option>
+                <option value="mfr">製造修配</option>
+                <option value="stu">學生</option>
+                <option value="u/e">待業中</option>
+                </select><br><br>
+              <!-- 驗證填寫是否為信箱 -->
+              聯絡信箱：<input type="text" name="email" onblur="VariMail"><br><br>
+              <script type="text/javascript" charset="utf-8" async defer>
+              function VariMail(){
+                if (search(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/)!=-1) {
+                } else {
+                  return "Email資料錯誤？請重新輸入！";
+                  }
+                }
+              </script>
+            </tbody>
+          </table>
+        <a class="btn btn-success pull-right" href="Questionar.html" >下一頁</a>
+  </body>
+</html>
