@@ -5,7 +5,7 @@
     <meta name="keyword" content="亞斯,AS,成人亞斯,社交研究,亞斯柏格" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>亞斯柏格之網路行為表現研究</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="bootstrap.min.css" rel="stylesheet" />
   </head>
   <body >
     <div class="container">
@@ -16,7 +16,7 @@
         <div class="form-responsive">
           <table class="form">
             <thead>
-              <tr>個人基本資料</tr>
+              <h2>個人基本資料</h2>
               <br><br>
             </thead>
             <tbody>
@@ -26,31 +26,34 @@
                  function VariName(){
                   var x = document.getElementsByName("age").value;
                   if (x<18){
-                    document.getElementsByName("age") = "本實驗僅針對成人";
-                  }else(x>99){
-                    document.getElementsByName("age") = "請輸入真實年齡";
+                    document.write("本實驗僅針對成人");
+                  }else if(x>99){
+                    document.write("請輸入真實年齡");
                   }
                  }             
                 </script>
               性別：<select name="gender" required>
+                <option value="0"></option>
                 <option value="male">男性</option>
                 <option value="female">女性</option>
                 </select><br><br>
               學歷：<select name="education" required>
+                <option value="0"></option>
                 <option value="elem">國小</option>
                 <option value="junior">國中</option>
                 <option value="senior">高中</option>
                 <option value="undergrad">大學/專科</option>
                 <option value="grad">研究所</option>
                 </select> <br><br>
-              職業類別：<selet name="job" required>
+              職業類別：<select name="job" required>
+                <option value="0"></option>
                 <option value="admin">內勤行政</option>
                 <option value="sales">外勤業務</option>
                 <option value="mech">技術操作</option>
                 <option value="mfr">製造修配</option>
                 <option value="stu">學生</option>
                 <option value="u/e">待業中</option>
-                </select><br><br>
+                </select> <br><br>
               <!-- 驗證填寫是否為信箱 -->
               聯絡信箱：<input type="text" name="email" onblur="VariMail"><br><br>
               <script type="text/javascript" charset="utf-8" async defer>
@@ -64,5 +67,6 @@
             </tbody>
           </table>
         <a class="btn btn-success pull-right" href="Questionar.html" >下一頁</a>
+        <script src="bootstrap.min.js"></script>
   </body>
 </html>

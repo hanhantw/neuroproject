@@ -1,7 +1,9 @@
-/* Header background*/
+/* Header background, uppercase & border*/
 .header {
     padding: 1.0121457489878542510121457489879%;
     background-color: #f1f1f1;
+    text-transform: uppercase;
+    border-style: double;
 }
 /*font size*/
 .main{
@@ -20,3 +22,9 @@
 		width: 50%;
 	}
 }
+h1 { 
+	/*selector for the heading */  color: cyan; 
+	/* makes color of the text cyan */  font-size: 44px; 
+	/* makes size of the text 44 pixels */  font-family: fantasy; 
+	/* changes font from serif to fantasy */  font-style: italic; 
+	/* makes text cursive */}
